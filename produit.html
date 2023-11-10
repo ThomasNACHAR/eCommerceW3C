@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titre">titre</title>
+    <style>
+        :root {
+            --mainimg: url(product.png);
+            --img1: url(product1.png);
+            --img2: url(product2.png);
+            --img3: url(product3.png);
+        }
+
+        #imgmain {
+            width: 300px;
+            height: 300px;
+            background: var(--mainimg) no-repeat;
+
+        }
+
+        #img1 {
+            background: url(product1.png);
+        }
+
+        #img2 {
+            background: url(product2.png);
+        }
+
+        #img3 {
+            background: url(product3.png);
+        }
+
+
+        .miniatures div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .miniatures {
+            display: flex;
+        }
+
+        .photo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .produit {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .produit button {
+            margin: 10px;
+            padding: 10px;
+            height: 100px;
+            width: 100px;
+            background-color: transparent;
+            border: 3px solid #d78100;
+            border-radius: 50px;
+            -webkit-transition: all .15s ease-in-out;
+            transition: all .15s ease-in-out;
+            color: #d78100;
+        }
+
+        .produit button:hover {
+            box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+            border: 3px solid #00d7c3;
+            color: #00d7c3;
+        }
+
+        .miniatures div:hover {
+            border: 3px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="fil">
+        <a href="accueil.html">Accueil</a>
+     --> 
+     <a href="categorie.html">Catégorie</a> 
+    -->
+    <a href="produit.html">Produits</a>
+    -->
+    <span>produit</span>
+</div>
+<div class="produit">
+    <div class="photo"> 
+        <div id="imgmain"></div>
+        <div class="miniatures">
+            <div id="img1" onclick="changeimg(1)"></div>
+            <div id="img2" onclick="changeimg(2)"></div>
+            <div id="img3" onclick="changeimg(3)"></div>
+        </div>     
+    </div>
+    <form  id="panier">
+    <button type="submit">Ajouter au panier</button>
+    <input type="number" min="0" name="quantite" id="quantite">
+
+    </form>
+</div>
+    <div class="description">
+        <h2>Descriptif du produit :</h2>
+        <p>Jeu trop bien achetez-le putain !</p>
+    </div>
+
+
+    <script>let titre = document.getElementById('titre');
+    titre.innerHTML='Salut !'
+    const root = document.querySelector(':root');
+    function changeimg(nbr) {
+        root.style.setProperty('--mainimg', `url(product${nbr}.png)`);
+    }
+
+    const panier = document.getElementById("panier");
+    const produit = 1;
+    const quantite = document.getElementById("quantite");
+    panier.addEventListener('submit', function(e) { 
+        e.preventDefault();
+        const quantiteValue = quantite.value; 
+
+        localStorage.setItem('quantite', quantiteValue);
+        localStorage.setItem('produit', produit);
+
+        window.location.href = 'panier.html';
+    })
+    </script>
+</body>
+</html>

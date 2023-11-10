@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --connexion: hidden;
+            --inscription: hidden;
+        }
+
+        .formIn {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .connexion {
+            visibility: var(--connexion);
+        }
+
+        .inscription {
+            visibility: var(--inscription);
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .videobg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    
+    <div class="choix">
+        <button onclick="afficheSign(1)">Sign in</button>
+        <button onclick="afficheSign(2)">Sign up</button>
+    </div>
+    <div class="container">
+        <video class='videobg' autoplay muted loop>
+            <source src="lebanon.mp4">
+        </video>
+        <div class="connexion">
+            <span>Sign up</span>
+            <form class='formUp' action="espace.html" method="post">
+                <input type="text" name="identifiant" id="identifiant">
+                <input type="password" name="motdepasse" id="motdepasse">
+                <button type="submit">CONNEXION</button>
+            </form>
+        </div>
+        <div class="inscription">
+        <form class="formIn" action="espace.html" method="post">
+            <span>Nom :</span>
+            <input type="text" name="nom" id="nom">
+            <span>Prénom</span>
+            <input type="text" name="prenom" id="prenom">
+            <span>Nom d'utilisateur</span>
+            <input type="text" name="pseudonyme" id="pseudonyme">
+            <span>Courrier électronique</span>
+            <input type="email" name="mail" id="mail">
+            <span>Mot de passe :</span>
+            <input type="password" name="mdp" id="mdp">
+            <span>Confirmer mot de passe :</span>
+            <input type="password" name="cmdp" id="cmdp">
+            <button type="submit">INSCRIPTION</button>
+        </form>
+        </div>
+    </div>
+    <script>
+        const root = document.querySelector(':root');
+    function afficheSign(nbr) {
+        if (nbr==1) {
+        root.style.setProperty('--inscription', `visible`);
+        root.style.setProperty('--connexion', `hidden`);
+        }
+        if (nbr==2) {
+        root.style.setProperty('--connexion', `visible`);
+        root.style.setProperty('--inscription', `hidden`);
+        }
+    }
+    </script>
+</body>
+</html>

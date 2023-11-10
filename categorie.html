@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catégories</title>
+</head>
+<body>
+    <header>
+        <img src="execom/img/logo.png" alt="Logo" id="logo">
+        <div class="menu">
+            <ul id="menu">
+                <a href="accueil.html">Accueil</a>
+                <a href="boutique.html">Boutique</a>
+                    <ul id="boutique">
+                        <li>Nos produits</li>
+                        <li>Promotions</li>
+                        <li>Meilleures Ventes</li>
+                        <li><a href="categorie.html">Catégories</a></li>
+                    </ul>
+               <a href="contact.html">Contact</a>
+            </ul>
+           
+        </div>
+    </header>
+    <div class="container">
+        <div id="filtre">
+<form action="flitre.php" method="get">
+    <label for="categorie">Catégorie de vente :</label>
+    <select name="categorie" id="categorie">
+        <optgroup>
+            <option value="bricolage">Bricolage</option>
+            <option value="cuisine">Cuisine et maison</option>
+            <option value="jouets">Jeux et jouets</option>
+            <option value="jeuxvideo">Jeux vidéo</option>
+            <option value="multimedia">Multimédia</option>
+            <option value="vetements">Vêtements</option>
+            <option value="livres">Livres</option>
+            <option value="electronique">Electronique et électroménager</option>
+            <option value="preums">Thomazon preums</option>
+            <option value="denisos">Thomazon Denisos</option>
+        </optgroup>
+    </select>
+    <label for="prix">Trier par prix</label>
+    <input type="range" name="prix" id="prix" min="0" max="500">
+    <span id="dispprice"></span>
+    <script>
+        let price = document.getElementById("prix");
+        price.oninput(document.getElementById("dispprice") = 'Salut')
+    </script>
+    <label for="recherche">Rechercher un produit</label>
+    <input type="search" name="recherche" id="recherche">
+    <button type="reset">Réinitialiser les filtres</button>
+    <input type="submit">
+</form>
+        </div>
+        <div id="produits">
+    
+        </div>
+    </div>
+    
+    <footer>
+        <address>
+            <p>15 rue du Commerce</p>
+            <p>18000 Bourges</p>
+            <p>Téléphone : <a href="tel:+33606060606">+33606060606</a></p>
+            <p>Mail :<a href="mailto:nom@domain.com">nom@domain.com</a></p>
+        </address>
+        <p>Mentions Legales</p>
+        <p>Reseaux Sociaux</p>
+    </footer>
+</body>
+</body>
+</html>
