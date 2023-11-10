@@ -5,56 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root{
+        --font: 1rem;
+        --line: calc(var(--font) * 2);
+        --move: calc(-1 * var(--line));
+      }
+
+        body {
+            background-image: linear-gradient(to right, grey, white 50%, black 50%, blue);
+        }
 
         .container {
-            margin-left: 250px;
-            margin-right: 250px;
-            margin-top: 250px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+
+        .boutons a, .boutons select {
+            text-decoration: none;
+            width: 300px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            display: inline-block; 
+            background-color: black;
+            border: 3px solid red;
+            border-radius: 50px;
+            -webkit-transition: all .15s ease-in-out;
+            transition: all .15s ease-in-out;
         }
 
         .boutons {
-            background-color: white;
-            height: 300px;
-            width: 500px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid;
-            border-radius: 50px;
             flex-direction: column;
-            justify-content: space-around;       
+            height: 50vh
         }
 
-        .boutons a {
-            border: 2px solid;
-            background-color: coral;
-            border-radius: 50px;
+        h1 {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            background-image: linear-gradient(to top, red, blue)
         }
+
+        .img1 {
+            background: url(img/img1.png) no-repeat center;
+        }
+
+        .img2 {
+            background: url(img/img2.png) no-repeat center;
+            
+        }
+
+        .img3 {
+            background: url(img/img3.png) no-repeat center;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .links div div {
+            width: 30vh;
+            height: 20vh;
+            margin: 30px;
+            
+        }
+
+        .links div div:hover {
+                cursor: pointer;
+            }
+
+        .links div div span {
+            font-size: var(--font);
+        line-height: var(--line);
+        padding: 0 1rem;
+        margin: 0;
+        color: white;
+        background-color: brown;
+        height: var(--line);
+        /* margin-top: var(--move);
+        position:relative; */
+        
+        transform: translateY(var(--move));
+        margin-bottom: var(--move);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        overflow:hidden;
+            
+        }
+
         
 
 
 
     </style>
 </head>
-<body style="background: rgb(60, 255, 0);">
+<body>
+    <h1>THOMAZON</h1>
     <div class="container">
-        <div class="boutons">
-            <div class="boutons1">
-                <a href="">Accueil</a>
-                <select id="boutique"></select>
-            </div>
-            <div class="boutons2">
-                <a href="">Nos produits</a>
-                <a href="">Promotions</a>
-            </div>
-            <div class="boutons3">
-                <a href="">Meilleures ventes</a>
+        
+        <div class="boutons">                
+                <a href="index.html">Accueil</a>
+                <select id="boutique" onchange="window.location.href=this.value">
+                    <option value="">Catégories</option>
+                    <option value="jeuxvideo.html">Jeux vidéo</option>
+                    <option value="jouets.html">Jouets</option>
+                    <option value="bricolage.html">Bricolage</option>
+                    <option value="cuisine.html">Cuisine et maison</option>
+                    <option value="livres.html">Livres</option>
+                    <option value="films.html">Films</option>
+                    <option value="multimedia.html">Multimédia</option>
+                </select>
+                <a href="produit.html">Nos produits</a>
+                <a href="produit.html">Promotions</a>
+                <a href="produit.html">Meilleures ventes</a>
                 <a href="">Contact</a>
-            </div>
-            
-            
-            
+        </div>
+        <div class="links">
+            <div class="link1"><div class="img1" onclick="window.location.href='produit.html'"><span>Produit phare</span></div></div>
+            <div class="link2"><div class="img2" onclick="window.location.href='produit.html'"><span>Meilleure vente</span></div></div>
+            <div class="link3"><div class="img3" onclick="window.location.href='produit.html'"><span>Découvrez</span></div></div>
         </div>
     </div>
+
+    
 </body>
 </html>

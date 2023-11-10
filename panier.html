@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+        </tr>
+        <tr>
+          <td>Jeu</td>
+          <td id="quantite1"></td>
+          <td id="prix1"></td>
+        </tr>
+      </table>
+    <script>
+    let quantite = localStorage.getItem('quantite');
+    let prix = localStorage.getItem('prix');
+    document.getElementById('quantite1').innerHTML = quantite;
+    document.getElementById('prix1').innerHTML = prix*quantite;
+
+    </script>
+</body>
+</html>

@@ -117,15 +117,19 @@
     const panier = document.getElementById("panier");
     const produit = 1;
     const quantite = document.getElementById("quantite");
+    const prix = 35;
     panier.addEventListener('submit', function(e) { 
         e.preventDefault();
         const quantiteValue = quantite.value; 
 
         localStorage.setItem('quantite', quantiteValue);
         localStorage.setItem('produit', produit);
+        localStorage.setItem('prix', prix);
 
         window.location.href = 'panier.html';
     })
+
+    
     </script>
 </body>
 </html>
