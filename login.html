@@ -57,14 +57,14 @@
         </video>
         <div class="connexion">
             <span>Sign up</span>
-            <form class='formUp' action="espace.html" method="post">
+            <form class='formUp' id="formUp">
                 <input type="text" name="identifiant" id="identifiant">
                 <input type="password" name="motdepasse" id="motdepasse">
                 <button type="submit">CONNEXION</button>
             </form>
         </div>
         <div class="inscription">
-        <form class="formIn" action="espace.html" method="post">
+        <form class="formIn" id="formIn">
             <span>Nom :</span>
             <input type="text" name="nom" id="nom">
             <span>Prénom</span>
@@ -93,6 +93,16 @@
         root.style.setProperty('--inscription', `hidden`);
         }
     }
+
+    const formIn = document.getElementById('formIn');
+    const prenom = document.getElementById('prenom');
+    formIn.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const prenomValue = prenom.value;
+        localStorage.setItem('prenom', prenomValue);
+        window.location.href = 'espace.html';
+    })
+
     </script>
 </body>
 </html>
